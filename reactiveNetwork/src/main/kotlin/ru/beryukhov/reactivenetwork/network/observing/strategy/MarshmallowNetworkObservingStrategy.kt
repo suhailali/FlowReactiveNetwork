@@ -45,6 +45,8 @@ class MarshmallowNetworkObservingStrategy : NetworkObservingStrategy {
         val request =
             NetworkRequest.Builder().addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
                 .addCapability(NetworkCapabilities.NET_CAPABILITY_NOT_RESTRICTED)
+                .addTransport(NetworkCapabilities.TRANSPORT_WIFI)
+                .addTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
                 .build()
         manager.registerNetworkCallback(request, networkCallback)
         return callbackFlow {
